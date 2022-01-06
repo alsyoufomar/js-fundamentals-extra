@@ -80,13 +80,13 @@ describe("fileExtension", () => {
 
 describe("range", () => {
   it("[1,2,8] returns 7", () => {
-    expect(f([1,2,8])).toEqual(7)
+    expect(f([1, 2, 8])).toEqual(7)
   })
   it("[1,1,1,1,1] returns 0", () => {
-    expect(f([1,1,1,1,1,1])).toEqual(0)
+    expect(f([1, 1, 1, 1, 1, 1])).toEqual(0)
   })
   it("[-10,21,13,100,1,-100] returns 200", () => {
-    expect(f([-10,21,13,100,1,-100])).toEqual(200)
+    expect(f([-10, 21, 13, 100, 1, -100])).toEqual(200)
   })
 })
 
@@ -122,28 +122,28 @@ describe("checkTransactions", () => {
 
 const films = [
   {
-    name:'The Power Of The Dog', 
+    name: 'The Power Of The Dog',
     genres: [
-      'Drama', 
+      'Drama',
       'Western'
     ]
   },
   {
-    name:'Dune', 
+    name: 'Dune',
     genres: [
       'Sci-Fi'
     ]
   },
   {
-    name: 'The Matrix Resurrections', 
+    name: 'The Matrix Resurrections',
     genres: [
       'Sci-Fi'
     ]
   },
   {
-    name:'The Last Duel', 
+    name: 'The Last Duel',
     genres: [
-      'Drama', 
+      'Drama',
       'History'
     ]
   },
@@ -154,9 +154,9 @@ describe("filmsInGenre", () => {
     expect(h(films, 'History')).toEqual(['The Last Duel'])
   })
   it("'Sci-Fi' returns 'The Matrix Resurrections' and 'Dune'", () => {
-    expect(h(films,'Sci-Fi')).toEqual(['Dune', 'The Matrix Resurrections'])
+    expect(h(films, 'Sci-Fi')).toEqual(['Dune', 'The Matrix Resurrections'])
   })
   it("'Drama' returns 'The Power Of The Dog' and 'The Last Duel'", () => {
-    expect(h(films,'Drama')).toEqual(['The Power Of The Dog', 'The Last Duel'])
+    expect(h(films, 'Drama')).toEqual(['The Power Of The Dog', 'The Last Duel'])
   })
 })

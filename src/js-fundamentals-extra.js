@@ -8,6 +8,7 @@
 //
 // TODO: write code below
 
+const SecondsInHours = hours => hours * 3600
 
 
 // MilesTravelled
@@ -22,7 +23,7 @@
 // with a reference to your function.
 //
 // TODO: write code below
-
+const convert = (speed, min) => Math.ceil(speed * min / 60)
 
 
 // KilometersToMiles
@@ -36,7 +37,7 @@
 // with a reference to your function.
 //
 // TODO: write code below
-
+const kiloConvert = (kilometer) => Math.round(kilometer / 1.6)
 
 
 // MakeSentence
@@ -52,9 +53,16 @@
 // with a reference to your function.
 //
 // TODO: write code below
+function MakeSentence(string) {
+  const sentence = string[0].toUpperCase() + string.substring(1);
+  const punctuation = [".", "!", "?"];
 
+  if (punctuation.includes(sentence[string.length - 1])) {
+    return sentence;
+  }
+  return sentence + ".";
 
-
+}
 // FileExtension
 //
 // Create a function that takes a filename as a string and returns the file extension
@@ -66,7 +74,13 @@
 // with a reference to your function.
 //
 // TODO: write code below
-
+function FileExtension(fileName) {
+  const extension = fileName.split(".").pop();
+  if (extension !== fileName) {
+    return extension;
+  }
+  return "";
+}
 
 
 // Range
@@ -80,7 +94,12 @@
 //
 // TODO: write code below
 
-
+function Range(numArrays) {
+  const highest = Math.max(...numArrays);
+  const lowest = Math.min(...numArrays);
+  numArrays = highest - lowest;
+  return numArrays;
+}
 
 // CheckTransactions
 //
@@ -98,7 +117,13 @@
 // with a reference to your function.
 //
 // TODO: write code below
-
+function CheckTransactions(transactionsArr, startingBalance, overdraft) {
+  for (let i of transactionsArr) {
+    startingBalance += i;
+  }
+  const finalBalance = startingBalance + overdraft;
+  return finalBalance >= 0;
+}
 
 
 // FilmsInGenre
@@ -114,31 +139,39 @@
 //
 // TODO: write code below
 
-
+function FilmsInGenre(filmName, filmGenre) {
+  const array = [];
+  for (let i = 0; i < filmName.length; i++) {
+    if (filmName[i].genres.includes(filmGenre)) {
+      array.push(filmName[i]["name"]);
+    }
+  }
+  return array;
+}
 
 // TODO: change undefined to be the name of the functions you defined
 module.exports = {
   //SecondsInHours
-  a: undefined,
+  a: SecondsInHours,
 
   //MilesTravelled,
-  b: undefined,  
+  b: convert,
 
   //KilometersToMiles,
-  c: undefined, 
+  c: kiloConvert,
 
   //MakeSentence
-  d: undefined, 
+  d: MakeSentence,
 
   //FileExtension
-  e: undefined,
+  e: FileExtension,
 
   //Range
-  f: undefined,
+  f: Range,
 
   //CheckTransactions
-  g: undefined,
+  g: CheckTransactions,
 
   //FilmsInGenre
-  h: undefined,
+  h: FilmsInGenre,
 }
